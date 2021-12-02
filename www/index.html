@@ -87,10 +87,14 @@
           return results.delete();
         })
         .then(function(results) {
-          console.log("success");
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").html("delete success");
         })
         .catch(function(error){
-          console.log("error");
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("delete fail:" + JSON.stringify(error));
         })
       //$("#display").html("delete does not work");
     }
@@ -103,10 +107,14 @@
         return results.update();
       })
         .then(function(results) {
-        console.log("success");
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").html("update success");
       })
       .catch(function(error){
-        console.log("error");
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("delete fail:" + JSON.stringify(error));
       })
       //$("#display").html("update does not work");
     }
