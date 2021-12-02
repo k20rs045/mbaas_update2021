@@ -75,7 +75,17 @@
     }
 
     function deleteData() {
-      $("#display").html("delete does not work");
+      UTdata.fetch()
+        .then(function(results) {
+          return results.delete();
+        })
+        .then(function(results) {
+          console.log("success");
+        })
+        .catch(function(error){
+          console.log("error");
+        })
+      //$("#display").html("delete does not work");
     }
 
     function updateData() {
