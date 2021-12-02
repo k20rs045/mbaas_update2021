@@ -71,7 +71,14 @@
     }
 
     function countData() {
-      $("#display").html("count does not work");
+      UTdata.count().fetchAll()
+        .then(function(results) {
+          $("#display").html("Data numbers: "+results.count);
+        })
+        .catch(function(error) {
+            $("#display").html("count does not work");
+        })
+      //$("#display").html("count does not work");
     }
 
     function deleteData() {
