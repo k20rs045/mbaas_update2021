@@ -73,11 +73,23 @@
     function countData() {
       UTdata.count().fetchAll()
         .then(function(results) {
-          $("#display").html("Data numbers: "+results.count);
+          var cnt = results.count;
+          $("#display").html("Data numbers: "+cnt);
         })
         .catch(function(error) {
-            $("#display").html("count does not work");
+          $("#display").html("count does not work");
         })
+      /*UTdata.fetchAll().then(function(results) {
+          let msg = "";
+          for (let i = 0; i < results.length; i++) {
+            msg += results[i].get(key) + "<br>";
+          }
+          msg += "Data number: "; msg += cnt;
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").addClass("bg-primary");
+          $("#display").html(msg);
+        })*/
       //$("#display").html("count does not work");
     }
 
@@ -96,6 +108,7 @@
           $("#display").addClass("bg-warning");
           $("#display").html("delete fail:" + JSON.stringify(error));
         })
+
       //$("#display").html("delete does not work");
     }
 
@@ -114,7 +127,7 @@
       .catch(function(error){
           $("#display").removeClass();
           $("#display").addClass("bg-warning");
-          $("#display").html("delete fail:" + JSON.stringify(error));
+          $("#display").html("update fail:" + JSON.stringify(error));
       })
       //$("#display").html("update does not work");
     }
